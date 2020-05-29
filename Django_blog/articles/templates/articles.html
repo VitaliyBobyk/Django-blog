@@ -20,7 +20,13 @@
           <a class="nav-link" href="{% url 'register' %}">Authentication</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" href="{% url 'write_article'  %}">Write a article!</a>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link" >Hello,  {{request.user}}</span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
         </li>
       </ul>
     </div>

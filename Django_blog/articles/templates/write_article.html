@@ -1,0 +1,50 @@
+{% extends "wrapper.html" %}
+{% block content %}
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'mainpage' %}">Micro Blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'mainpage' %}">Home
+                    <span class="sr-only">(current)</span>
+                  </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'register' %}">Authentication</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'write_article'  %}">Write a article!</a>
+            </li>
+            <li class="nav-item">
+              <span class="nav-link" >Hello,  {{request.user}}</span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    </header>
+    <div class=" mt-5">
+        <form>
+            <div class="form-group pt-5">
+                <div class="col-sm-5 mt-5">
+                    <input type="text" class="form-control " placeholder="Title of article">
+                </div>
+            </div>
+        </form>
+        <div class="form-group col-sm-7">
+            <label>Write a article!</label>
+            <textarea class="form-control"  rows="9"></textarea>
+        </div>
+        <button type="button" class="btn btn-success ml-3 col-sm-1">Send!</button>
+    </div>
+</body>
+{% endblock %}

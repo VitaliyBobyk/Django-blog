@@ -5,5 +5,6 @@ from .views import ArticlesList
 
 urlpatterns = [
     path('', ArticlesList.as_view(template_name='articles.html')),
-    path('', views.articles, name='articles')
+    path('', views.articles, name='articles'),
+    path('write_article/', views.write_article, name='write_article')
 ]
