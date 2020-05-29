@@ -2,7 +2,7 @@
 {% block content %}
 <body class="text-center">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <header class="masthead mb-auto">
+  <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
   <div class="container">
     <a class="navbar-brand" href="{% url 'mainpage' %}">Micro Blog</a>
@@ -20,23 +20,30 @@
           <a class="nav-link" href="{% url 'register' %}">Authentication</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Write a article!</a>
+          <a class="nav-link" href="#">Contact</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 </header>
-  <main role="main" class="inner cover">
-    <h1 class="cover-heading">Micro Blog!</h1>
-    <p class="lead">Hello, this is a micro blog, where you can write and read a interesting arcticles!</p>
-    <p class="lead">
-      <a href="{% url 'articles' %}" class="btn btn-lg btn-secondary">Let's Go!</a>
+{% for i in object_list %}
+<div class="bs-component d-flex justify-content-center mt-3">
+  <div class="jumbotron w-75 p-3 mt-5">
+    <h1 class="display-6 text-left">{{ i.title }}</h1>
+    <p class="text-left">Date Realese: {{ i.date }} </p>
+    <hr class="my-4">
+    <p class="lead text-left">{{ i.post }}</p>
+    <p  class="text-left thumbnail">
+      <span>{{ i.likes }}&nbsp;</span>
+      <a class="fa fa-thumbs-up thumbnail text-muted" href="#" role="button"></a>
     </p>
-  </main>
+  </div>
+</div>
+</div>
   <footer class="mastfoot mt-auto">
   </footer>
 </div>
+{% endfor %}
 </body>
-
 {% endblock %}
