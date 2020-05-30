@@ -36,10 +36,10 @@ def register(request):
     context = {'form': form}
     return render(request, 'signup.html', context)
 
+
 def logoutUser(request):
     logout(request)
     return redirect('login')
-
 
 
 def mainpage(reques):

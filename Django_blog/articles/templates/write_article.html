@@ -32,19 +32,30 @@
       </div>
     </nav>
     </header>
-    <div class=" mt-5">
-        <form>
-            <div class="form-group pt-5">
-                <div class="col-sm-5 mt-5">
-                    <input type="text" class="form-control " placeholder="Title of article">
-                </div>
+    <div class="mt-5">
+        <form action="" method="POST" class="form-group pt-5">
+            {% csrf_token %}
+           <div class="input">
+                {{form.title}}
+           </div>
+            <div class="input">
+                {{form.post}}
             </div>
-        </form>
-        <div class="form-group col-sm-7">
-            <label>Write a article!</label>
-            <textarea class="form-control"  rows="9"></textarea>
+        <div class="input-group-append" >
         </div>
-        <button type="button" class="btn btn-success ml-3 col-sm-1">Send!</button>
+            <button type="submit" class="btn btn-success ml-3 mt-3 col-sm-1">Send!</button>
+        </form>
     </div>
+    <script>
+		//Query All input fields
+		var form_fields = document.getElementsByClassName('input')
+		form_fields[1].placeholder='Title..';
+		form_fields[2].placeholder='Post..';
+
+
+		for (var field in form_fields){
+			form_fields[field].className += ' form-control'
+		}
+	</script>
 </body>
 {% endblock %}

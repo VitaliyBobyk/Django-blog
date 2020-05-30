@@ -1,7 +1,7 @@
 {% extends "wrapper.html" %}
 {% block content %}
 <body class="text-center">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <div class="cover-container d-flex w-100 h-50 p-3 mx-auto flex-column">
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
   <div class="container">
@@ -38,6 +38,7 @@
   <div class="jumbotron w-75 p-3 mt-5">
     <h1 class="display-6 text-left">{{ i.title }}</h1>
     <p class="text-left">Date Realese: {{ i.date }} </p>
+    <p class="text-left">Author: {{ i.createdBy }} </p>
     <hr class="my-4">
     <p class="lead text-left">{{ i.post }}</p>
     <p  class="text-left thumbnail">
