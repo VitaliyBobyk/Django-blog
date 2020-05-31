@@ -12,7 +12,6 @@ class ArticlesList(ListView):
     model = Articles
 
 
-
 def write_article(request):
     if request.user.is_authenticated:
         form = ArticleForm()
@@ -20,7 +19,7 @@ def write_article(request):
             form = ArticleForm(request.POST)
             if form.is_valid():
                 post = form.save(commit=False)
-                post.createdBy = request.user
+                post.author = request.user
                 post.save()
                 return redirect('articles')
         context = {'form': form}
@@ -28,3 +27,20 @@ def write_article(request):
 
     else:
         return redirect('../../authentication/login')
+
+
+def like_article(request):
+    if request.user.is_authenticated:
+        user = request.user
+        if request.method == 'POST':
+            article_id = request.POST.get('article_id')
+            article_obj = Articles.objects.get(id=article_id)
+            if user in article_obj.liked.all():
+                article_obj.liked.remove(user)
+                return redirect('articles')
+            else:
+                article_obj.liked.add(user)
+                return redirect('articles')
+    else:
+        return redirect('articles')
+
