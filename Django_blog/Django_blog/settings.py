@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '1-vf@i$@520r18be9e+t4sfv%j1^4nr2xb%+x(n6s9u$#l7+0o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['microblogapphero.herokuapp.com/', '127.0.0.1']
 
 
 # Application definition
